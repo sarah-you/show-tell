@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sarah's Show & Tell</title>
+    <style>
+      body {
+        background-image: url("images/windows-bg.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-attachment: fixed;
+        margin: 0;
+        font-family: "Verdana", cursive, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+
+      h1 {
+        color: black;
+        margin-bottom: 20px;
+      }
+      #fun-fact {
+        font-size: 24px;
+        margin: 30px 0;
+        color: black;
+        min-height: 80px;
+        background-color: transparent;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        font-family: monospace;
+      }
+      button {
+        background-color: transparent;
+        color: black;
+        border: none;
+        /* padding: 15px 30px; */
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 300px;
+        height: 100px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        font-weight: bold;
+        /* margin-left: 30px;
+        margin-right: 30px; */
+      }
+      button:hover {
+        background-color: transparent;
+      }
+      html,
+      body,
+      button,
+      a,
+      input,
+      textarea {
+        cursor: url("images/cursor.png"), auto;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .buttons-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+      .ff-button-text {
+        margin-top: 5px;
+      }
+      .funFactsPage-button,
+      .secondPage-button {
+        display: flex;
+        flex-direction: column;
+      }
+      .secondPage-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .secondPage-body h2 {
+        text-align: left;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-family: "Verdana", cursive, sans-serif;
+        font-size: 1.5rem;
+      }
+      .career-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 50%;
+        margin-top: 50px;
+      }
+      .section {
+        margin-bottom: 80px;
+      }
+      .headline {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .headline h1 {
+        text-align: center;
+      }
+      .pfp {
+        border-radius: 80px;
+        width: 100px;
+        height: 100px;
+      }
+      .sp-text {
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0px;
+        font-family: monospace;
+        font-size: 21px;
+      }
+      .fun-fact-btn {
+        background-color: white;
+        border-radius: 30px;
+        width: 200px;
+        height: 80px;
+      }
+      .fun-fact-btn:hover {
+        background-color: #f3f3f3;
+      }
+      .heading-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+      .back-btn {
+        font-size: 30px;
+      }
+
+      .career-text {
+        display: flex;
+        flex-direction: column;
+        background-color: #f3f3f3;
+        padding: 20px;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+      .hobbies-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+      .hobbies-images {
+        margin-top: 20px;
+      }
+      .hobbies-img {
+        margin: 5px;
+      }
+      .careers-body {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+      }
+      .sp-img {
+        margin: 5px;
+        width: 300px;
+        height: 300px;
+      }
+
+      .hobbies-img {
+        width: 300px;
+        height: 350px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper" id="mainPage">
+      <div class="buttons-wrap">
+        <button onclick="showfunFactPage()" class="funFactsPage-button">
+          <img
+            src="images/fun-fact.png"
+            alt="light bulb icon"
+            style="width: 60px; height: 60px"
+          />
+          <div class="ff-button-text">Fun Facts!</div>
+        </button>
+        <button onclick="showSecondPage()" class="secondPage-button">
+          <img
+            src="images/folder.png"
+            alt="Go to new page"
+            style="width: 70px; height: 70px"
+          />
+          <div class="ff-button-text">Get to Know Me</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="wrapper" id="funFactPage" style="display: none">
+      <div class="heading-wrap">
+        <button onclick="goBack()" class="back-btn">Go Back</button>
+        <h1>🌟 Did You Know? 🌟</h1>
+      </div>
+      <button
+        onclick="generateFunFact()"
+        style="margin-top: 20px"
+        class="fun-fact-btn"
+      >
+        Click Me!
+      </button>
+      <div id="fun-fact"></div>
+    </div>
+
+    <div class="wrapper" id="secondPage" style="display: none">
+      <button onclick="goBack()" class="back-btn">Go Back</button>
+      <div class="headline">
+        <img src="images/matcha.png" alt="profile-icon" class="pfp" />
+        <h1 style="text-align: center">Hello World <br />I'm Sarah 👋</h1>
+      </div>
+      <div class="secondPage-body">
+        <div class="career-body career-wrap">
+          <div class="career-images">
+            <img src="images/ff1.png" alt="placeholder" class="sp-img" />
+            <img src="images/ff2.jpg" alt="placeholder" class="sp-img" />
+          </div>
+          <div class="career-text">
+            <h2>Fun(?) Facts about me</h2>
+            <div class="sp-text">
+              My family and I immigrated from South Korea in 2005. <br /><br />
+              I volunteer as a teacher for 7th & 8th graders at my church (my
+              childhood dream was to be a teacher).<br /><br />
+              I am the friend that plans all birthday/holiday events & travel
+              intineraries in my friend groups.<br /><br />
+              I may not be the BEST, but I LOVE coding.. <br /><br />
+              I knew Front-End Developer was my calling when I was editing my
+              Myspace profile as a kid (I was really good too).<br /><br />
+              I enjoy counting my macros -- specifically, how much protein I'm
+              eating in a day :3
+              <br /><br />
+              I secretly love when plans fall through&lt;3
+              <br /><br /><br />
+              <h2>If I am not working,</h2>
+              I am playing pickleball, hiking somewhere green with trees, or at
+              the gym lifting things (my current favorite at the gym is weighted
+              hip thrusts).<br /><br />
+            </div>
+          </div>
+        </div>
+
+        <div class="hobbies-wrap">
+          <div class="hobbies-images">
+            <img src="images/1.png" alt="placeholder" class="hobbies-img" /><img
+              src="images/2.png"
+              alt="placeholder"
+              class="hobbies-img"
+            /><img src="images/3.jpg" alt="placeholder" class="hobbies-img" />
+            <img src="images/4.png" alt="placeholder" class="hobbies-img" />
+          </div>
+        </div>
+
+        <div class="career-body">
+          <img src="images/bonus.png" alt="placeholder" class="hobbies-img" />
+          <div class="career-text">
+            <h2>BONUS</h2>
+            <div class="sp-text">
+              I live with 2 cats. They are both named Blessing.<br /><br />
+              Orange chonky boy is my mom's cat. He's a troublemaker, but
+              friendly, sweet, and loves being pet.<br /><br />
+              The gray skinny queen is my brother's cat. She's very observant
+              and cautious, hisses all the time, but knows how to pull the puss
+              it boots move to get what she wants (churu).
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const funFacts = [
+        "Bananas are berries but strawberries aren't",
+        "Octopuses have three hearts — and their blood is blue",
+        "A group of flamingos is called a 'flamboyance'",
+        "Honey never spoils — archaeologists found edible honey in ancient Egyptian tombs",
+        "Wombat poop is cube-shaped",
+        "Sloths can hold their breath longer than dolphins",
+        "Sharks existed before trees — by about 200 million years",
+        "Pineapples take about two years to grow",
+        "Butterflies can taste with their feet",
+        "There's a basketball court in the U.S. Supreme Court building. (It's nicknamed the 'Highest Court in the Land')",
+        "Cats can't taste sweetness",
+        "Scotland's national animal is the unicorn",
+        "The inventor of the Pringles can is now buried in one",
+        "Avocados are actually berries too",
+        "Humans share about 60% of their DNA with bananas",
+        "The world's smallest reptile was discovered in 2021 — it fits on a fingertip",
+        "Cows have best friends and get stressed when separated",
+        "There's an island in Japan populated only by friendly bunnies. (Ōkunoshima, or 'Rabbit Island')",
+        "You can't hum while holding your nose closed",
+        "The Eiffel Tower can grow about 6 inches taller in summer because metal expands with heat",
+        "A day on Venus is longer than a year on Venus",
+        "Goats have rectangular pupils to see wide angles",
+        "Octopus arms can taste what they touch",
+        "Sea otters hold hands while sleeping so they don’t drift apart",
+        "Jellyfish have survived five mass extinctions",
+        "The hashtag symbol is technically called an octothorpe",
+        "Elephants can 'hear' with their feet by detecting ground vibrations",
+        "There's a museum in Sweden dedicated entirely to failure — the Museum of Failure",
+        "Koalas have fingerprints that are almost indistinguishable from humans'",
+        "There's a species of jellyfish that can essentially live forever",
+      ];
+
+      // function generateFunFact() {
+      //   const randomIndex = Math.floor(Math.random() * funFacts.length);
+      //   document.getElementById("fun-fact").innerText = funFacts[randomIndex];
+      // }
+      let recentFacts = [];
+
+      function generateFunFact() {
+        let randomIndex;
+        let fact;
+
+        do {
+          randomIndex = Math.floor(Math.random() * funFacts.length);
+          fact = funFacts[randomIndex];
+        } while (recentFacts.includes(fact));
+        document.getElementById("fun-fact").innerText = fact;
+        recentFacts.push(fact);
+
+        if (recentFacts.length > 5) {
+          recentFacts.shift();
+        }
+      }
+
+      function showSecondPage() {
+        document.getElementById("mainPage").style.display = "none";
+        document.getElementById("secondPage").style.display = "flex";
+      }
+
+      function showfunFactPage() {
+        document.getElementById("mainPage").style.display = "none";
+        document.getElementById("funFactPage").style.display = "flex";
+      }
+
+      function goBack() {
+        document.getElementById("secondPage").style.display = "none";
+        document.getElementById("funFactPage").style.display = "none";
+
+        document.getElementById("mainPage").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
